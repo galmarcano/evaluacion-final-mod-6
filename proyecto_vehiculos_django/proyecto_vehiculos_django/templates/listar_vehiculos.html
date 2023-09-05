@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <h1>Listado de Vehículos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Serial Carrocería</th>
+                <th>Serial Motor</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Condición de Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in vehiculos %}
+                <tr>
+                    <td>{{ vehiculo.marca }}</td>
+                    <td>{{ vehiculo.modelo }}</td>
+                    <td>{{ vehiculo.serial_carroceria }}</td>
+                    <td>{{ vehiculo.serial_motor }}</td>
+                    <td>{{ vehiculo.categoria }}</td>
+                    <td>{{ vehiculo.precio }}</td>
+                    <td>{{ vehiculo.get_condicion_precio_display }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% endblock %}
+</body>
+</html>
